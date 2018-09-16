@@ -15,9 +15,12 @@ href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
 
     <div class="section">
       <article class="media" v-for="submission in sortedSubmissions" 
-            v-bind:key="submission.id"
-            v-bind:class="{ 'blue-border': submission.votes >= 20}">
-        <submission-component></submission-component>
+            :key="submission.id"
+            :class="{ 'blue-border, grey-background': submission.votes >= 20 }">
+        <submission-component
+          :submission="submission"
+          :submissions="sortedSubmissions">
+        </submission-component>
       </article>
     </div>
   </div>
