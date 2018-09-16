@@ -39,3 +39,7 @@
   top: 5px;
   border-radius: 20px;
 }
+
+.grey-background {
+  background-color: rgb(199, 161, 180);
+}
