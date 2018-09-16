@@ -25,13 +25,22 @@ const submissionComponent = {
         </div>
       </div>
       <div class="media-right">
-        <span class="icon is-small" v-on:click="upvote(submission.id)">
+        <span class="icon is-small" @click="upvote(submission.id)">
           <i class="fa fa-chevron-up"></i>
           <strong class="has-text-info">{{ submission.votes }}</strong>
         </span>
       </div>
      </div>
-    `
+    `,
+    props: ['submission', 'submissions'],
+    methods: {
+      upvote(id) {
+        const submission = this.submissions.find(
+          submission => submission.id === id
+        );
+        submission.votes++;
+      }
+    },
 }
 
 
@@ -46,14 +55,6 @@ new Vue({
       return this.submissions.sort(( a, b ) => {
         return b.votes - a.votes;
       });
-    }
-  },
-  methods: {
-    upvote(id) {
-      const submission = this.submissions.find(
-        submission => submission.id === id
-      );
-      submission.votes++;
     }
   },
   components: {
