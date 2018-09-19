@@ -39,3 +39,8 @@
   top: 5px;
   border-radius: 20px;
 }
+
+.component {
+  display: flex;
+  width: 100%;
+}
