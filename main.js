@@ -1,6 +1,6 @@
 const submissionComponent = {
   template: 
-    `<div style="display: flex; width: 100%">
+    `<div class="component">
       <figure class="media-left">
         <img class="image is-64x64" 
           :src="submission.submissionImage">
@@ -25,7 +25,7 @@ const submissionComponent = {
         </div>
       </div>
       <div class="media-right">
-        <span class="icon is-small" @click="upvote(submission.id)">
+        <span class="icon is-small" @click="upvoteSubmission(submission.id)">
           <i class="fa fa-chevron-up"></i>
           <strong class="has-text-info">{{ submission.votes }}</strong>
         </span>
@@ -34,11 +34,11 @@ const submissionComponent = {
     `,
     props: ['submission', 'submissions'],
     methods: {
-      upvote(id) {
+      upvoteSubmission(submissionId) {
         const submission = this.submissions.find(
-          submission => submission.id === id
+          submission => submission.id === submissionId
         );
-        submission.votes++;
+        return submission.votes++;
       }
     },
 }
@@ -52,7 +52,7 @@ new Vue({
   },
   computed: {
     sortedSubmissions() {
-      return this.submissions.sort(( a, b ) => {
+      return this.submissions.sort((a, b) => {
         return b.votes - a.votes;
       });
     }
