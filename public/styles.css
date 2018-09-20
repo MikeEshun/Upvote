@@ -25,6 +25,10 @@
   border: 1px solid #3373dc !important;
 }
 
+.upvote-bg {
+  background-color: darkcyan
+}
+
 .tag {
   font-size: 0.6rem !important;
 }
